@@ -1,0 +1,32 @@
+(ns jank-sdl.hello-sdl
+  (:include "SDL2/SDL.h")
+  (:include "stdio.h"))
+
+(defn -main [& args]
+  (println "hello!")
+
+  (let [screen_height 480
+        screen_width 640
+        window (cpp/SDL_CreateWindow "SDL Tutorial" cpp/SDL_WINDOWPOS_UNDEFINED, cpp/SDL_WINDOWPOS_UNDEFINED, screen_width screen_height cpp/SDL_WINDOW_SHOWN)
+        screen-surface (cpp/SDL_GetWindowSurface window)
+        e (cpp/SDL_Event.)
+        quit (atom false)]
+
+
+    (cpp/SDL_FillRect screen-surface cpp/nullptr (cpp/SDL_MapRGB (.-format screen-surface) 0x00 0xFF 0x00))
+    (cpp/SDL_UpdateWindowSurface window)
+
+    (while (not @quit)
+      (cpp/SDL_PollEvent (cpp/& e))
+      (when (= (.-type e) cpp/SDL_QUIT)
+
+        (reset! quit true)
+
+        )
+
+      )
+
+
+    )
+    (cpp/SDL_Quit)
+  )

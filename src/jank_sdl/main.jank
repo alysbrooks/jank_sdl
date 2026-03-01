@@ -1,0 +1,7 @@
+(ns jank-sdl.main
+(:include "SDL2/SDL.h")
+  (:include "stdio.h")
+)
+
+(defn -main [& args]
+  (println "Hello, world!"))
