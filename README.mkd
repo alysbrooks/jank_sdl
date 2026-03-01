@@ -1,0 +1,15 @@
+
+
+# Jank SDL example #
+
+Simple example of how to use SDL with Jank.
+
+
+Heavily based on [Beginning Game Programming v2.0](https://lazyfoo.net/tutorials/SDL/).
+
+
+On Ubuntu, you can run it with a simple `lein run`. On other platforms, you
+might have to adjust the include paths. This requirement will likely go away in
+upcoming versions of Jank, unless you wan to use a nonstandard location for your
+SDL library.
+
